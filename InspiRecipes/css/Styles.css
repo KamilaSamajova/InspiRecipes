@@ -1,0 +1,312 @@
+body {
+    background-color: #DDEFAB;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 1080px) {
+    body {
+        font-size: 90%;
+    }
+}
+
+@media (min-width: 950px) and (max-width: 1000px) {
+    body {
+        font-size: 85%;
+    }
+}
+
+@media (min-width: 950px) {
+    #menu {
+        grid-template-areas: "logo menu search upload avocado";
+        grid-template-columns: 13% 50% 15% 18% 4%;
+    }
+        
+    #firstLi {
+        border-left: 2px solid #DDEFAB;
+    }
+    
+    li {
+        margin-right: -5px;
+        border-right: 2px solid #DDEFAB;
+        inline-size: 22%;
+    }
+    
+    li a {
+        font-size: 120%;
+        padding: 15% 0% 14% 0%;
+        text-decoration: none;
+    
+        background: linear-gradient(to left, #1c7e1300 50%, #ddefab57 50%) right;
+        background-size: 200%;
+        transition: all .5s ease-out;
+    }
+    
+    li a:hover {
+        background-position: left bottom;
+        color:#0b4f05;
+        text-shadow: 0px 1px 2px #0b4f05;
+    }
+    
+    #search-input {
+        width: 100%;
+        height: 50%;
+    }
+    
+    #searchbar {
+        height: 105%;
+    }
+        
+    #searchbar::placeholder {
+        font-size: 110%;
+    }
+    
+    #button-picture {
+        margin-top: 2%
+    }
+    
+    #upload {
+        grid-area: upload;
+        border: none;
+        width: 85%;
+        padding: 3%;
+        margin-right: 3%;
+        justify-self: right;
+        align-self: center;
+        font-size: 100%;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-stretch: semi-condensed;
+        color:#0b4f05;
+        box-shadow: 2px 2px 4px #0b4f05;
+        text-shadow: 0px 0.5px 1px #239319e5;
+    
+        background: linear-gradient(to left, #ddefabc9 50%, #ddefab79 50%) right;
+        background-size: 200%;
+        transition: all .5s ease-out;
+    }
+    
+    #upload:hover {
+        background-position: left bottom;
+        color: #0b4f05;
+        box-shadow: 3px 4px 5px #0b4f05;
+        text-shadow: 1px 1px 3px #239319e5;
+    }
+    
+    #avocado {
+        width: 90%;
+    }
+}
+
+@media (max-width: 950px) {
+    #menu {
+        grid-template-areas: 
+        "logo search upload avocado"
+        "menu menu menu menu";
+        grid-template-columns: 30% 30% 35% 5%;
+    }
+        
+    li {
+        margin-right: -4px;
+        inline-size: 25%;
+    }
+    
+    li a {
+        font-size: 120%;
+        text-align: center;
+        padding: 10% 0% 9% 0%;
+        text-decoration: none;
+    
+        background: linear-gradient(to left, #1c7e1300 50%, #ddefab57 50%) right;
+        background-size: 300%;
+        transition: all .9s ease-out;
+    }
+    
+    li a:hover {
+        background-position: left bottom;
+        color:#0b4f05;
+        text-shadow: 0px 1px 2px #0b4f05;
+    }
+    
+    #search-input {
+        width: 95%;
+        height: 65%;
+    }
+
+    #searchbar {
+        height: 90%;
+    }
+        
+    #searchbar::placeholder {
+        font-size: 110%;
+    }
+    
+    #button-picture {
+        margin-top: 3.5%
+    }
+    
+    #upload {
+        grid-area: upload;
+        border: none;
+        width: 85%;
+        padding: 3%;
+        margin-right: 3%;
+        justify-self: right;
+        align-self: center;
+        font-size: 95%;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-stretch: semi-condensed;
+        color:#0b4f05;
+        box-shadow: 2px 2px 4px #0b4f05;
+        text-shadow: 0px 0.5px 1px #239319e5;
+    
+        background: linear-gradient(to left, #ddefabc9 50%, #ddefab79 50%) right;
+        background-size: 200%;
+        transition: all .5s ease-out;
+    }
+    
+    #upload:hover {
+        background-position: left bottom;
+        color: #0b4f05;
+        box-shadow: 3px 4px 5px #0b4f05;
+        text-shadow: 1px 1px 3px #239319e5;
+    }
+    
+    #avocado {
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px) {
+    #menu {
+        grid-template-areas: 
+        "logo search avocado"
+        "menu menu menu";
+        grid-template-columns: 45% 46% 9%;
+    }
+        
+    li {
+        margin-right: -4px;
+        inline-size: 25%;
+    }
+    
+    li a {
+        font-size: 70%;
+        padding: 15% 0% 14% 0%;
+        text-decoration: none;
+    
+        background: linear-gradient(to left, #1c7e1300 50%, #ddefab57 50%) right;
+        background-size: 300%;
+        transition: all .9s ease-out;
+    }
+    
+    li a:hover {
+        background-position: left bottom;
+        color:#0b4f05;
+        text-shadow: 0px 1px 2px #0b4f05;
+    }
+    
+    #search-input {
+        width: 95%;
+        height: 70%;
+        padding-bottom: 1%;
+    }
+    
+    #searchbar {
+        height: 70%;
+    }
+    
+    #searchbar::placeholder {
+        font-size: 65%;
+    }
+    
+    #button-picture {
+        margin-top: 2%
+    }
+    
+    #upload {
+        display: none;
+    }
+        
+    #avocado {
+        width: 60%;
+    }
+}
+
+#menu {
+    display: grid;
+    background-color: #1c7e13bb;
+    box-shadow: 0px 4px 5px #0b4f0577;;
+}
+
+#logo {
+    grid-area: logo;
+    align-self: center;
+}
+   
+#logo-img {
+    width: 75%;
+    margin-top: 3%;
+    margin-left: 10%;
+    opacity: 80%;
+}
+
+#nav {
+    grid-area: menu;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    font-family: sans-serif;
+    font-stretch: semi-condensed;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px #239319e5;
+}
+
+li a {
+    display: block;
+    color: #DDEFAB;
+    text-align: center;
+}
+
+#search-input {
+    grid-area: search;
+    align-self: center;
+    align-items: center;
+    background-color: #ddefabc9;
+    border: none;
+    box-shadow: 0.5px 0.5px 3px #0b4f05;
+    border-radius: 4px;
+    padding-left: 4%;
+}
+
+#searchbar {
+    width: 85%;
+    background-color: #ddefab00;
+    border: none;
+    overflow-x: hidden;
+}
+
+#searchbar::placeholder {
+    color:#0b4f05b4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+#button-picture {
+    width: 7%;
+    opacity: 55%;
+}
+
+#avocado {
+    grid-area: avocado;
+    align-self: center;
+    justify-self: center;
+}
