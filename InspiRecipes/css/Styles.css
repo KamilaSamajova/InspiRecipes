@@ -1,3 +1,5 @@
+/* CSS file styling the navigation bar and other components appearing on all pages */
+
 body {
     background-color: #DDEFAB;
     padding: 0;
@@ -16,22 +18,28 @@ body {
     }
 }
 
+/* CSS block for desktop */
 @media (min-width: 950px) {
+    
+    /* menu layout for desktop */
     #menu {
         grid-template-areas: "logo menu search upload avocado";
         grid-template-columns: 13% 50% 15% 18% 4%;
     }
-        
+      
+    /* adding the first borderline for the menu buttons */
     #firstLi {
         border-left: 2px solid #DDEFAB;
     }
     
+    /* menu buttons style */
     li {
         margin-right: -5px;
         border-right: 2px solid #DDEFAB;
         inline-size: 22%;
     }
     
+    /* setting hover for menu buttons */
     li a {
         font-size: 120%;
         padding: 15% 0% 14% 0%;
@@ -48,6 +56,7 @@ body {
         text-shadow: 0px 1px 2px #0b4f05;
     }
     
+    /* search bar style */
     #search-input {
         width: 100%;
         height: 50%;
@@ -65,6 +74,7 @@ body {
         margin-top: 2%
     }
     
+    /* upload button style with a hover */
     #upload {
         grid-area: upload;
         border: none;
@@ -93,24 +103,30 @@ body {
         text-shadow: 1px 1px 3px #239319e5;
     }
     
+    /* avocado picture style */
     #avocado {
         width: 90%;
     }
 }
 
+/* CSS block for tablets */
 @media (max-width: 950px) {
+    
+    /* menu layout for tablets */
     #menu {
         grid-template-areas: 
         "logo search upload avocado"
         "menu menu menu menu";
         grid-template-columns: 30% 30% 35% 5%;
     }
-        
+
+    /* menu buttons style */    
     li {
         margin-right: -4px;
         inline-size: 25%;
     }
     
+    /* setting hover for menu buttons */
     li a {
         font-size: 120%;
         text-align: center;
@@ -128,6 +144,7 @@ body {
         text-shadow: 0px 1px 2px #0b4f05;
     }
     
+    /* search bar style */
     #search-input {
         width: 95%;
         height: 65%;
@@ -145,6 +162,7 @@ body {
         margin-top: 3.5%
     }
     
+    /* upload button style with a hover */
     #upload {
         grid-area: upload;
         border: none;
@@ -173,12 +191,16 @@ body {
         text-shadow: 1px 1px 3px #239319e5;
     }
     
+    /* avocado picture style */
     #avocado {
         width: 90%;
     }
 }
 
+/* CSS block for mobiles */
 @media (max-width: 400px) {
+
+    /* menu layout for mobiles */
     #menu {
         grid-template-areas: 
         "logo search avocado"
@@ -186,11 +208,13 @@ body {
         grid-template-columns: 45% 46% 9%;
     }
         
+    /* menu buttons style */
     li {
         margin-right: -4px;
         inline-size: 25%;
     }
     
+    /* setting hover for menu buttons */
     li a {
         font-size: 70%;
         padding: 15% 0% 14% 0%;
@@ -207,6 +231,7 @@ body {
         text-shadow: 0px 1px 2px #0b4f05;
     }
     
+    /* search bar style */
     #search-input {
         width: 95%;
         height: 70%;
@@ -225,21 +250,25 @@ body {
         margin-top: 2%
     }
     
+    /* upload button on mobile phone is only visible on the bottom of the recipes page */
     #upload {
         display: none;
     }
         
+    /* avocado picture style */
     #avocado {
         width: 60%;
     }
 }
 
+/* menu style */
 #menu {
     display: grid;
     background-color: #1c7e13bb;
     box-shadow: 0px 4px 5px #0b4f0577;;
 }
 
+/* logo picture style */
 #logo {
     grid-area: logo;
     align-self: center;
@@ -252,6 +281,7 @@ body {
     opacity: 80%;
 }
 
+/* navigation bar style */
 #nav {
     grid-area: menu;
 }
@@ -262,6 +292,7 @@ ul {
     padding: 0;
 }
 
+/* menu buttons */
 li {
     display: inline-block;
     font-family: sans-serif;
@@ -276,6 +307,7 @@ li a {
     text-align: center;
 }
 
+/* search bar style */
 #search-input {
     grid-area: search;
     align-self: center;
@@ -305,6 +337,7 @@ li a {
     opacity: 55%;
 }
 
+/* avocado picture style */
 #avocado {
     grid-area: avocado;
     align-self: center;

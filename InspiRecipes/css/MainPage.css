@@ -1,3 +1,6 @@
+/* CSS file styling the main page */
+
+/* setting the font size according to the screen size */
 @media (min-width: 950px) {
     #container {
         font-size: 115%;
@@ -22,7 +25,10 @@
     }
 }
 
+/* CSS block for desktop */
 @media (min-width: 700px) {
+
+    /* layout for desktop */
     #container {
         grid-template-areas: 
             "welcome quote"
@@ -47,16 +53,20 @@
     }
 }
 
+/* CSS block for tablets and mobiles */
 @media (max-width: 700px) {
+    
+    /* layout for tablets and mobiles */
     #container {
-        grid-template-areas: "welcome"
-                         "pictures"
-                         "quote"
-                         "findInsTitle"
-                         "findIns"
-                         "inspireTitle"
-                         "inspire"
-                         "articles";
+        grid-template-areas: 
+            "welcome"
+            "pictures"
+            "quote"
+            "findInsTitle"
+            "findIns"
+            "inspireTitle"
+            "inspire"
+            "articles";
         grid-template-columns: 100%;
         padding: 4%;
     }
@@ -65,11 +75,8 @@
         width: 100%;
     }
 
-    #pic1 {
-        display: none;
-    }
-
-    #pic7 {
+    /* hiding first and last picture because there is not enough space for 7 pictures in a row */
+    #pic1, #pic7 {
         display: none;
     }
 
