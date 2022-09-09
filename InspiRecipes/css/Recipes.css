@@ -1,0 +1,108 @@
+#container {
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #002902;
+    padding: 4%;
+
+    grid-template-areas: "buttons buttons"
+                         "recipes filter";
+    grid-template-columns: 75% 25%;
+}
+
+#buttons {
+    grid-area: buttons;
+}
+
+#recipes {
+    grid-area: recipes;
+    width: 90%
+}
+
+#filter {
+    grid-area: filter;
+}
+
+#breakfast, #lunch, #dinner, #snack, #drinks {
+    width: 17.5%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 65%;
+    border: none;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px #0b4f056f;
+    text-shadow: 0px 2px 4px #0b4f056f;
+    margin-left: 1%;
+    margin-right: 1%
+}
+
+#breakfast {
+    background-image: url(../Pictures/breakfast.jpg);
+}
+
+#lunch {
+    background-image: url(../Pictures/lunch.jpg);
+}
+
+#dinner {
+    background-image: url(../Pictures/dinner.jpg);
+}
+
+#snack {
+    background-image: url(../Pictures/snack.jpg);
+}
+
+#drinks {
+    background-image: url(../Pictures/drinks.jpg);
+}
+
+#recipePics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#recipePics img {
+    margin-bottom: 5%; 
+}
+
+#filter img {
+    width: 90%;
+}
+
+@media (max-width: 600px) {
+    #buttons {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 5%;
+    }
+
+    #breakfast, #lunch, #dinner, #snack, #drinks {
+        width: 90%;
+        height: 17%;
+        margin-top: 3%;
+    }
+
+    #recipePics img {
+        width: 47%;
+    }
+
+    #container {
+        grid-template-areas: "buttons filter"
+        "recipes recipes";
+        grid-template-columns: 55% 45%;
+    }
+}
+
+@media (min-width: 600px) {
+    #recipePics img {
+        width: 47%;
+    }
+}
+
+@media (min-width: 900px) {
+    #recipePics img {
+        width: 30%;
+    }
+}
