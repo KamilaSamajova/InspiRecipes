@@ -1,0 +1,97 @@
+#container {
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #002902;
+    padding: 4%;
+}
+
+#profilePicture {
+    width: 60%;
+    margin-bottom: -4%;
+}
+
+#info {
+    justify-content: center;
+}
+
+h3 {
+    font-size: 140%;
+    margin: 1px;
+}
+
+#contact {
+    grid-area: contact;
+    padding-left: 10%;
+}
+
+#mail, #message {
+    width: 80%;
+    align-self: center;
+    align-items: center;
+    border-radius: 4px;
+    padding-left: 1%;
+    background-color: #0b4f0530;
+    border-color: #0b4f05;
+    border-style: solid;
+    border-width: thin;
+    font-size: 120%;
+}
+
+#mail {
+    height: 35px;
+}
+
+#message {
+    resize: vertical;
+    height: 300px;
+}
+
+#send {
+    grid-area: upload;
+    border: none;
+    width: 25%;
+    padding: 2%;
+    margin-top: 3%;
+    margin-left: 57%;
+    font-size: 130%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-stretch: semi-condensed;
+    color: #ddefab;
+    background-color:#1c7e13bb;
+    box-shadow: 0px 2px 4px #0b4f056f;
+
+}
+
+@media (max-width: 500px) {
+
+    /* layout for mobile */
+    #container {
+        grid-template-areas: 
+        "personalInfo"
+        "contact";
+    }
+
+    #personalInfo {
+        grid-area: personalInfo;
+        display: grid;
+        justify-items: center;
+    }
+}
+
+@media (min-width: 500px) {
+
+    /* layout for desktop */
+    #container {
+        grid-template-areas: 
+        "personalInfo contact";
+        grid-template-columns: 50% 50%;
+    }
+
+    #personalInfo {
+        grid-area: personalInfo;
+        display: grid;
+        justify-items: center;
+    }
+}
+
