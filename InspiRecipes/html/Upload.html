@@ -5,16 +5,20 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>InspiRecipes</title>
-        <link rel="stylesheet" href="../css/Contact.css">
         <link rel="stylesheet" href="../css/Styles.css">
+        <link rel="stylesheet" href="../css/Upload.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
+
+        <!-- Top navigation menu -->
         <div id="menu">
-            
+
+            <!-- InspiRecipes logo -->
             <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
+            <!-- Navigation buttons -->
             <ul id="nav">
                 <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
                 <li><a href="Recipes.html">RECIPES</a></li>
@@ -22,6 +26,7 @@
                 <li><a href="Contact.html">CONTACT</a></li>
             </ul>
 
+            <!-- Search bar with search button -->
             <div class="input" id="search-input">
                 <input type="search" class="form-control" id="searchbar"
                         placeholder="Search">
@@ -29,34 +34,40 @@
                 <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
             </div>
 
+            <!-- Buton for uploading recipes -->
             <button id="upload" onclick="window.location.href='Upload.html';">UPLOAD YOUR RECIPE</button>
 
+            <!-- Avocado picture -->
             <img id="avocado" src="../Pictures/avocado.png">
         </div>
 
         <div id="container">
-            <div id="personalInfo">
-                <h1 id="name">Name Surname</h1>
-                <img id="profilePicture" src="../Pictures/profile.png" />
-                <p id="info">
-                    <h3>Address 123</h3>
-                    <h3>email.address@gmail.com</h3>
-                    <h3>0491 234 567</h3>
-                    <h3>name.surname</h3>
-                    <h3>name.surname<h3>
-                </p>
+            <h1 id="heading">Upload your recipe</h1>
+            <div id="name">
+                <h3>Recipe name:</h3>
+                <input class="form-control" id="nameInput">
             </div>
-
-            <div id="contact">
-                <h1>Contact me</h1>
-                <h2>Your e-mail:</h2>
-                <input class="form-control" id="mail">
-                <h2>Message:</h2>
-                <textarea class="form-control" id="message"></textarea>
-                <br>
-                <button id="send">Send</button>
+            <div id="time">
+                <h3>Cooking time:</h3>
+                <input class="form-control" id="timeInput">
+            </div>
+            <div id="ingredients">
+                <h3>Ingredients:</h3>
+                <input class="form-control" id="ingredientsInput">
+            </div>
+            <div id="recipe">
+                <h3>Recipe:</h3>
+                <textarea class="form-control" id="recipeInput"></textarea>
+            </div>
+            <div id="photos">
+                <h3>Upload your photos:</h3>
+                <button id="addPhotos"> + Add photos </button>
+            </div>
+            <div id="uploadRecipe">
+                <button id="uploadButton">Upload</button>
             </div>
         </div>
+        
     </body>
 
 </html>

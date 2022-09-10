@@ -1,0 +1,106 @@
+#container {
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #002902;
+    padding: 4%;
+}
+
+@media (min-width: 400px) {
+    #container {
+        grid-template-areas: "heading heading"
+                             "name recipe"
+                             "time recipe"
+                             "ingredients recipe"
+                             "photos recipe"
+                             "uploadRecipe uploadRecipe";
+        grid-template-columns: 45% 55%;
+    }
+
+    #recipe {
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 400px) {
+    #container {
+        grid-template-areas: "heading"
+                             "name"
+                             "time"
+                             "ingredients"
+                             "recipe"
+                             "photos"
+                             "uploadRecipe";
+    }
+}
+
+#name {
+    grid-area: name;
+}
+
+#recipe {
+    grid-area: recipe;
+}
+
+#time {
+    grid-area: time;
+}
+
+#ingredients {
+    grid-area: ingredients;
+}
+
+#photos {
+    grid-area: photos;
+}
+
+#uploadRecipe {
+    grid-area: uploadRecipe;
+    justify-self: right;
+    margin-right: 4%;
+    margin-top: 2%;
+}
+
+#nameInput, #timeInput, #ingredientsInput, #recipeInput {
+    width: 95%;
+    align-self: center;
+    align-items: center;
+    border-radius: 4px;
+    padding-left: 1%;
+    background-color: #0b4f0530;
+    border-color: #0b4f05;
+    border-style: solid;
+    border-width: thin;
+    font-size: 120%;
+}
+
+#nameInput, #timeInput, #ingredientsInput {
+    height: 30px;
+}
+
+#recipeInput {
+    resize: vertical;
+    height: 300px;
+}
+
+#uploadButton {
+    border: none;
+    padding: 20%;
+    margin-top: 3%;
+    font-size: 130%;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #ddefab;
+    background-color:#1c7e13bb;
+    box-shadow: 0px 2px 4px #0b4f056f;
+}
+
+#addPhotos {
+    background-color:#0b4f054e;
+    box-shadow: 1px 1.5px 3px #0b4f056f;
+    color: #0b4f05;
+    border-radius: 1px;
+    border-color: #0b4f05;
+    border-style: solid;
+    border-width: thin;
+    padding: 1%;
+}
