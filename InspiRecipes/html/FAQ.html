@@ -6,32 +6,39 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>InspiRecipes</title>
         <link rel="stylesheet" href="../css/Styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <div id="menu">
-            
-            <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
+        <div id="app">
 
-            <ul id="nav">
-                <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
-                <li><a href="Recipes.html">RECIPES</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
-                <li><a href="Contact.html">CONTACT</a></li>
-            </ul>
+            <div id="menu">
+                
+                <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
-            <div class="input" id="search-input">
-                <input type="search" class="form-control" id="searchbar"
-                        placeholder="Search">
+                <ul id="nav">
+                    <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
+                    <li><a href="Recipes.html">RECIPES</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Contact.html">CONTACT</a></li>
+                </ul>
 
-                <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
+                <div class="input" id="search-input">
+                    <input type="search" class="form-control" id="searchbar"
+                            placeholder="Search">
+
+                    <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
+                </div>
+
+                <button id="upload" onclick="window.location.href='Recipes.html';" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+
+                <img id="avocado" src="../Pictures/avocado.png">
             </div>
-
-            <button id="upload" onclick="window.location.href='Upload.html';">UPLOAD YOUR RECIPE</button>
-
-            <img id="avocado" src="../Pictures/avocado.png">
         </div>
+
+        <script src="../vue/recipes.js"></script>
+
     </body>
 
 </html>

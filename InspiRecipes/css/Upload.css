@@ -1,40 +1,54 @@
-#container {
+#form {
     display: grid;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #002902;
-    padding: 4%;
 }
 
-@media (min-width: 400px) {
-    #container {
-        grid-template-areas: "heading heading"
-                             "name recipe"
-                             "time recipe"
-                             "ingredients recipe"
-                             "photos recipe"
-                             "uploadRecipe uploadRecipe";
-        grid-template-columns: 45% 55%;
-    }
-
-    #recipe {
-        margin-left: 10%;
-    }
-}
-
-@media (max-width: 400px) {
-    #container {
+@media (min-width: 0px) {
+    #form {
         grid-template-areas: "heading"
                              "name"
+                             "type"
                              "time"
                              "ingredients"
                              "recipe"
                              "photos"
                              "uploadRecipe";
     }
+
+    #recipeInput {
+        resize: vertical;
+        height: 300px;
+    }
+}
+
+@media (min-width: 400px) {
+    #form {
+        grid-template-areas: "heading heading"
+                             "name recipe"
+                             "type recipe"
+                             "time recipe"
+                             "ingredients recipe"
+                             "photos uploadRecipe";
+        grid-template-columns: 45% 55%;
+    }
+
+    #recipe {
+        margin-left: 10%;
+    }
+
+    #recipeInput {
+        resize: vertical;
+        height: 400px;
+    }
 }
 
 #name {
     grid-area: name;
+}
+
+#type {
+    grid-area: type;
 }
 
 #recipe {
@@ -56,8 +70,8 @@
 #uploadRecipe {
     grid-area: uploadRecipe;
     justify-self: right;
-    margin-right: 4%;
-    margin-top: 2%;
+    margin-right: 8%;
+    margin-top: 5%;
 }
 
 #nameInput, #timeInput, #ingredientsInput, #recipeInput {
@@ -79,13 +93,12 @@
 
 #recipeInput {
     resize: vertical;
-    height: 300px;
 }
 
 #uploadButton {
     border: none;
     padding: 20%;
-    margin-top: 3%;
+    margin-top: 5%;
     font-size: 130%;
     font-family: sans-serif;
     font-weight: bold;

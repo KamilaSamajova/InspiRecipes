@@ -7,56 +7,62 @@
         <title>InspiRecipes</title>
         <link rel="stylesheet" href="../css/Contact.css">
         <link rel="stylesheet" href="../css/Styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <div id="menu">
-            
-            <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
+        <div id="app">
+            <div id="menu">
+                
+                <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
-            <ul id="nav">
-                <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
-                <li><a href="Recipes.html">RECIPES</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
-                <li><a href="Contact.html">CONTACT</a></li>
-            </ul>
+                <ul id="nav">
+                    <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
+                    <li><a href="Recipes.html">RECIPES</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Contact.html">CONTACT</a></li>
+                </ul>
 
-            <div class="input" id="search-input">
-                <input type="search" class="form-control" id="searchbar"
-                        placeholder="Search">
+                <div class="input" id="search-input">
+                    <input type="search" class="form-control" id="searchbar"
+                            placeholder="Search">
 
-                <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
+                    <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
+                </div>
+
+                <button id="upload" onclick="window.location.href='Recipes.html';" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+
+                <img id="avocado" src="../Pictures/avocado.png">
             </div>
 
-            <button id="upload" onclick="window.location.href='Upload.html';">UPLOAD YOUR RECIPE</button>
+            <div id="container">
+                <div id="personalInfo">
+                    <h1 id="name">Name Surname</h1>
+                    <img id="profilePicture" src="../Pictures/profile.png" />
+                    <p id="info">
+                        <h3>Address 123</h3>
+                        <h3>email.address@gmail.com</h3>
+                        <h3>0491 234 567</h3>
+                        <h3>name.surname</h3>
+                        <h3>name.surname<h3>
+                    </p>
+                </div>
 
-            <img id="avocado" src="../Pictures/avocado.png">
+                <div id="contact">
+                    <h1>Contact me</h1>
+                    <h2>Your e-mail:</h2>
+                    <input class="form-control" id="mail">
+                    <h2>Message:</h2>
+                    <textarea class="form-control" id="message"></textarea>
+                    <br>
+                    <button id="send">Send</button>
+                </div>
+            </div>
         </div>
 
-        <div id="container">
-            <div id="personalInfo">
-                <h1 id="name">Name Surname</h1>
-                <img id="profilePicture" src="../Pictures/profile.png" />
-                <p id="info">
-                    <h3>Address 123</h3>
-                    <h3>email.address@gmail.com</h3>
-                    <h3>0491 234 567</h3>
-                    <h3>name.surname</h3>
-                    <h3>name.surname<h3>
-                </p>
-            </div>
+        <script src="../vue/recipes.js"></script>
 
-            <div id="contact">
-                <h1>Contact me</h1>
-                <h2>Your e-mail:</h2>
-                <input class="form-control" id="mail">
-                <h2>Message:</h2>
-                <textarea class="form-control" id="message"></textarea>
-                <br>
-                <button id="send">Send</button>
-            </div>
-        </div>
     </body>
 
 </html>

@@ -5,8 +5,13 @@
     padding: 4%;
 
     grid-template-areas: "buttons buttons"
-                         "recipes filter";
+                         "recipes filter"
+                         "form form";
     grid-template-columns: 75% 25%;
+}
+
+#form {
+    grid-area: form;
 }
 
 #buttons {
@@ -22,7 +27,18 @@
     grid-area: filter;
 }
 
-#breakfast, #lunch, #dinner, #snack, #drinks {
+#filtering {
+    background-color: #00290236;
+    border-color: #002902c5;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: thin;
+    padding-left: 7%;
+    padding-bottom: 10%;
+    padding-top: 0.1%;
+}
+
+#breakfast, #soup, #dish, #snack, #drinks {
     width: 17.5%;
     height: 100%;
     background-size: cover;
@@ -41,12 +57,12 @@
     background-image: url(../Pictures/breakfast.jpg);
 }
 
-#lunch {
-    background-image: url(../Pictures/lunch.jpg);
+#soup {
+    background-image: url(../Pictures/soup.jpg);
 }
 
-#dinner {
-    background-image: url(../Pictures/dinner.jpg);
+#dish {
+    background-image: url(../Pictures/dish.jpg);
 }
 
 #snack {
@@ -71,14 +87,14 @@
     width: 90%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 670px) {
     #buttons {
         display: flex;
         flex-wrap: wrap;
         margin-right: 5%;
     }
 
-    #breakfast, #lunch, #dinner, #snack, #drinks {
+    #breakfast, #soup, #dish, #snack, #drinks {
         width: 90%;
         height: 17%;
         margin-top: 3%;
@@ -90,12 +106,13 @@
 
     #container {
         grid-template-areas: "buttons filter"
-        "recipes recipes";
+                             "recipes recipes"
+                             "form form";
         grid-template-columns: 55% 45%;
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 670px) {
     #recipePics img {
         width: 47%;
     }

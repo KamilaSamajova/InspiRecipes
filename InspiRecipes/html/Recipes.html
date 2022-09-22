@@ -7,56 +7,133 @@
         <title>InspiRecipes</title>
         <link rel="stylesheet" href="../css/Styles.css">
         <link rel="stylesheet" href="../css/Recipes.css">
+        <link rel="stylesheet" href="../css/Upload.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <div id="menu">
-            <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
+        <div id="app">
+            <div id="menu">
+                <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
-            <ul id="nav">
-                <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
-                <li><a href="Recipes.html">RECIPES</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
-                <li><a href="Contact.html">CONTACT</a></li>
-            </ul>
+                <ul id="nav">
+                    <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
+                    <li><a href="Recipes.html" v-on:click="show = true">RECIPES</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Contact.html">CONTACT</a></li>
+                </ul>
 
-            <div class="input" id="search-input">
-                <input type="search" class="form-control" id="searchbar"
-                        placeholder="Search">
+                <div class="input" id="search-input">
+                    <input type="search" class="form-control" id="searchbar"
+                            placeholder="Search">
 
-                <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
-            </div>
-
-            <button id="upload" onclick="window.location.href='Upload.html';">UPLOAD YOUR RECIPE</button>
-
-            <img id="avocado" src="../Pictures/avocado.png">
-        </div>
-
-        <div id="container">
-            <div id="buttons">
-                <button id="breakfast"><h2>Breakfast</h2></button>
-                <button id="lunch"><h2>Lunch</h2></button>
-                <button id="dinner"><h2>Dinner</h2></button>
-                <button id="snack"><h2>Snack</h2></button>
-                <button id="drinks"><h2>Drinks</h2></button>
-            </div>
-            <div id="recipes">
-                <h1>All recipes</h1>
-                <div id="recipePics">
-                    <img src="../Pictures/Recipe.jpg"/>
-                    <img src="../Pictures/Recipe.jpg"/>
-                    <img src="../Pictures/Recipe.jpg"/>
-                    <img src="../Pictures/Recipe.jpg"/>
-                    <img src="../Pictures/Recipe.jpg"/>
-                    <img src="../Pictures/Recipe.jpg"/>
+                    <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
                 </div>
+
+                <button id="upload" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+
+                <img id="avocado" src="../Pictures/avocado.png">
             </div>
-            <div id="filter">
-                <h1>Filter</h1>
-                <img src="../Pictures/Filter.jpg"/>
-            </div>
+
+            <div id="container">
+                
+                <div id="buttons" v-show="show">
+                    <button id="breakfast" v-on:click="searchValue = 'Breakfast'"><h2>Breakfast</h2></button>
+                    <button id="soup" v-on:click="searchValue = 'Soup'"><h2>Soup</h2></button>
+                    <button id="dish" v-on:click="searchValue = 'Main dish'"><h2>Main dish</h2></button>
+                    <button id="snack" v-on:click="searchValue = 'Snack'"><h2>Snack</h2></button>
+                    <button id="drinks" v-on:click="searchValue = 'Drinks'"><h2>Drinks</h2></button>
+                </div>
+
+                <div id="recipes" v-show="show">
+                    <h1 v-on:click="searchValue = 'all'">All recipes</h1>
+                        <div class="active" v-for="recipe in filteredRecipes()" :key="recipe.name">
+                            <p>{{ recipe.name }}</p>
+                            <p>{{ recipe.type }}</p>
+                            <p>{{ recipe.time }} minutes</p>
+                            <!--img v-bind:src="recipe.image"><-->
+                        </div>
+                </div>
+
+                <div id="filter" v-show="show">
+                    <h1>Filter</h1>
+                    <div id="filtering">
+                        <h3>Cooking time:</h3>
+                        <div v-for="time in times" :key="time.title" >
+                            <input type="checkbox" v-model="time.checked" v-on:change="changeMaxTime" />
+                            {{ time.title }}
+                        </div>
+                        <h3>Ingredients:</h3>
+                        <div v-for="ingredient in ingredients" :key="ingredient.title" >
+                            <input type="checkbox" v-model="ingredient.checked" />
+                            {{ ingredient.title }}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="form" v-show="!show">
+                    <h1 id="heading">Upload your recipe</h1>
+                    
+                    <div id="name">
+                        <h3>Recipe name:</h3>
+                        <input class="form-control" id="nameInput" v-model="newRecipe.name" />
+                    </div>
+                    
+                    <div id="type">
+                        <h3>Recipe type:</h3>
+                        
+                        <input type="radio" id="breakfast-type" value="Breakfast" v-model="newRecipe.type" />
+                        <label for="breakfast-type">Breakfast</label>
+        
+                        <input type="radio" id="soup-type" value="Soup" v-model="newRecipe.type" />
+                        <label for="soup-type">Soup</label>
+        
+                        <input type="radio" id="dish-type" value="Main dish" v-model="newRecipe.type" />
+                        <label for="dish-type">Main dish</label>
+        
+                        <input type="radio" id="snack-type" value="Snack" v-model="newRecipe.type" />
+                        <label for="snack-type">Snack</label>
+        
+                        <input type="radio" id="drinks-type" value="Drinks" v-model="newRecipe.type" />
+                        <label for="drinks-type">Drinks</label>
+                    </div>
+                    
+                    <div id="time">
+                        <h3>Cooking time:</h3>
+                        <input class="form-control" id="timeInput" v-model="newRecipe.time">
+                    </div>
+        
+                    <div id="ingredients">
+                        <h3>Ingredients:</h3>
+                        <input class="form-control" id="ingredientsInput">
+                    </div>
+        
+                    <div id="recipe">
+                        <h3>Recipe:</h3>
+                        <textarea class="form-control" id="recipeInput" v-model="newRecipe.recipe"></textarea>
+                    </div>
+        
+                    <div id="photos">
+                        <h3>Upload your photo:</h3>
+                        <button id="addPhotos"> + Add photo </button>
+                    </div>
+                    
+                    <div id="uploadRecipe">
+                        <button id="uploadButton" v-on:click="addRecipe">Upload</button>
+                    </div>
+        
+                    <div class="active" v-for="recipe in filteredRecipes()" :key="recipe.name" v-show="false">
+                        <p>{{ recipe.name }}</p>
+                        <p>{{ recipe.type }}</p>
+                        <p>{{ recipe.time }} minutes</p>
+                        <!--img v-bind:src="recipe.image"><-->
+                    </div>
+                </div>
+            </div>          
         </div>
+
+        <script src="../vue/recipes.js"></script>
 
     </body>
 

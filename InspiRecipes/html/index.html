@@ -7,84 +7,89 @@
         <title>InspiRecipes</title>
         <link rel="stylesheet" href="../css/Styles.css">
         <link rel="stylesheet" href="../css/MainPage.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-
-        <!-- Top navigation menu -->
-        <div id="menu">
-
-            <!-- InspiRecipes logo -->
-            <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
-
-            <!-- Navigation buttons -->
-            <ul id="nav">
-                <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
-                <li><a href="Recipes.html">RECIPES</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
-                <li><a href="Contact.html">CONTACT</a></li>
-            </ul>
-
-            <!-- Search bar with search button -->
-            <div class="input" id="search-input">
-                <input type="search" class="form-control" id="searchbar"
-                        placeholder="Search">
-
-                <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
-            </div>
-
-            <!-- Buton for uploading recipes -->
-            <button id="upload" onclick="window.location.href='Upload.html';">UPLOAD YOUR RECIPE</button>
-
-            <!-- Avocado picture -->
-            <img id="avocado" src="../Pictures/avocado.png">
-        </div>
-
-        <!-- Main page content -->
-        <div id="container">
-
-            <!-- Welcome quote -->
-            <div id="welcome"><h1>Welcome to <img id="logo-picture" src="../Pictures/InspiRecipes.png"/> website!</h1></div>
+        <div id="app">
             
-            <!-- Virgil quote -->        
-            <div id="quote"><h2>"The greatest wealth is health." - Virgil</h2></div>
-        
-            <!-- Food decoration pictures on top of the main page -->    
-            <div id="recipePictures">
-                <img id="pic1" src="../Pictures/Pic1.jpg"/>
-                <img src="../Pictures/Pic2.jpg"/>
-                <img src="../Pictures/Pic3.jpg"/>
-                <img src="../Pictures/Pic4.jpg"/>
-                <img src="../Pictures/Pic5.jpg"/>
-                <img src="../Pictures/Pic6.jpg"/>
-                <img id="pic7" src="../Pictures/Pic7.jpg"/>                
-            </div>
+            <!-- Top navigation menu -->
+            <div id="menu">
 
-            <!-- Find InspiRation title and info -->    
-            <h2 id="findInspirationTit">Find InspiRation</h2>
-            <p id="findInspiration">On this website, you can find a lot of healthy recipes. <br>
-                So do not hesitate to try them and move one step  <br>
-                further on your way to a healthy lifestyle! Good luck </p>
+                <!-- InspiRecipes logo -->
+                <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
-            <!-- InspiRe others title and info -->    
-            <h2 id="inspireOthersTit">InspiRe others</h2>
-            <p id="inspireOthers">Do you have recipes you want to share with others <br>
-                and help them on their way to live a healthier life? <br>
-                Just upload them and share your beautiful content! </p>
+                <!-- Navigation buttons -->
+                <ul id="nav">
+                    <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
+                    <li><a href="Recipes.html">RECIPES</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Contact.html">CONTACT</a></li>
+                </ul>
 
-            <!-- Articles section with author's healthy lifestyle articles -->    
-            <div id="articles">
-                <h2>News</h2>
-                <div id="articlesPic">
-                    <img src="../Pictures/Article.jpg"/>
-                    <img src="../Pictures/Article.jpg"/>
-                    <img src="../Pictures/Article.jpg"/>
-                    <img src="../Pictures/Article.jpg"/>
+                <!-- Search bar with search button -->
+                <div class="input" id="search-input">
+                    <input type="search" class="form-control" id="searchbar"
+                            placeholder="Search">
+
+                    <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
                 </div>
+
+                <!-- Buton for uploading recipes -->
+                <button id="upload" onclick="window.location.href='Recipes.html';" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+
+                <!-- Avocado picture -->
+                <img id="avocado" src="../Pictures/avocado.png">
             </div>
+
+            <!-- Main page content -->
+            <div id="container">
+
+                <!-- Welcome quote -->
+                <div id="welcome"><h1>Welcome to <img id="logo-picture" src="../Pictures/InspiRecipes.png"/> website!</h1></div>
+                
+                <!-- Virgil quote -->        
+                <div id="quote"><h2>"The greatest wealth is health." - Virgil</h2></div>
             
+                <!-- Food decoration pictures on top of the main page -->    
+                <div id="recipePictures">
+                    <img id="pic1" src="../Pictures/Pic1.jpg"/>
+                    <img src="../Pictures/Pic2.jpg"/>
+                    <img src="../Pictures/Pic3.jpg"/>
+                    <img src="../Pictures/Pic4.jpg"/>
+                    <img src="../Pictures/Pic5.jpg"/>
+                    <img src="../Pictures/Pic6.jpg"/>
+                    <img id="pic7" src="../Pictures/Pic7.jpg"/>                
+                </div>
+
+                <!-- Find InspiRation title and info -->    
+                <h2 id="findInspirationTit">Find InspiRation</h2>
+                <p id="findInspiration">On this website, you can find a lot of healthy recipes. <br>
+                    So do not hesitate to try them and move one step  <br>
+                    further on your way to a healthy lifestyle! Good luck </p>
+
+                <!-- InspiRe others title and info -->    
+                <h2 id="inspireOthersTit">InspiRe others</h2>
+                <p id="inspireOthers">Do you have recipes you want to share with others <br>
+                    and help them on their way to live a healthier life? <br>
+                    Just upload them and share your beautiful content! </p>
+
+                <!-- Articles section with author's healthy lifestyle articles -->    
+                <div id="articles">
+                    <h2>News</h2>
+                    <div id="articlesPic">
+                        <img src="../Pictures/Article.jpg"/>
+                        <img src="../Pictures/Article.jpg"/>
+                        <img src="../Pictures/Article.jpg"/>
+                        <img src="../Pictures/Article.jpg"/>
+                    </div>
+                </div>
+                
+            </div>
         </div>
+
+        <script src="../vue/recipes.js"></script>
 
     </body>
 
