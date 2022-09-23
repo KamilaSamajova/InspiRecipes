@@ -37,14 +37,14 @@
                 </div>
 
                 <!-- Buton for uploading recipes -->
-                <button id="upload" onclick="window.location.href='Recipes.html';" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+                <button id="upload" onclick="window.location.href='Recipes.html';">UPLOAD YOUR RECIPE</button>
 
                 <!-- Avocado picture -->
                 <img id="avocado" src="../Pictures/avocado.png">
             </div>
 
             <!-- Main page content -->
-            <div id="container">
+            <div id="container" v-show="show == 0">
 
                 <!-- Welcome quote -->
                 <div id="welcome"><h1>Welcome to <img id="logo-picture" src="../Pictures/InspiRecipes.png"/> website!</h1></div>
@@ -78,18 +78,26 @@
                 <!-- Articles section with author's healthy lifestyle articles -->    
                 <div id="articles">
                     <h2>News</h2>
-                    <div id="articlesPic">
-                        <img src="../Pictures/Article.jpg"/>
-                        <img src="../Pictures/Article.jpg"/>
-                        <img src="../Pictures/Article.jpg"/>
-                        <img src="../Pictures/Article.jpg"/>
+                    <div id="articleItems">
+                        <div id="articleItem" v-for="article in articles" :key="article.articleId" v-on:click="show = article.articleId" >
+                            <h4>{{ article.name }}</h4>
+                            <img v-bind:src="article.image">
+                            <p>{{ article.article.slice(0, 100) }}... (whole article)</p>
+                        </div>
                     </div>
                 </div>
-                
             </div>
+
+            <div id="showArticle" v-if="show != 0" v-show="show != 0">
+                <button v-on:click="show = 0">← Back to main page</button>
+                <h2>{{ articles[show - 1].name }}</h2>
+                <img v-bind:src="articles[show - 1].image">
+                <p>{{ articles[show - 1].article }}</p>
+            </div>
+
         </div>
 
-        <script src="../vue/recipes.js"></script>
+        <script src="../vue/articles.js"></script>
 
     </body>
 

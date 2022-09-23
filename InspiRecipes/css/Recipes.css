@@ -95,10 +95,6 @@
     border-radius: 5px;
 }
 
-#filter img {
-    width: 90%;
-}
-
 @media (max-width: 670px) {
     #buttons {
         display: flex;
