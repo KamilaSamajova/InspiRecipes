@@ -47,6 +47,7 @@
             <!-- Recipes page content -->
             <div id="container">
                 
+                <!-- Buttons filtering the recipe types -->
                 <div id="buttons" v-show="show == 0">
                     <button id="breakfast" v-on:click="searchValue = 'Breakfast'"><h2>Breakfast</h2></button>
                     <button id="soup" v-on:click="searchValue = 'Soup'"><h2>Soup</h2></button>
@@ -55,6 +56,7 @@
                     <button id="drinks" v-on:click="searchValue = 'Drinks'"><h2>Drinks</h2></button>
                 </div>
 
+                <!-- Section with all the recipes -->
                 <div id="recipes" v-show="show == 0">
                     <h1 v-on:click="searchValue = 'all'">Recipes</h1>
                     <div id="recipeItems">
@@ -67,14 +69,21 @@
                     </div>
                 </div>
 
+                <!-- Filter section -->
                 <div id="filter" v-show="show == 0">
+                    
                     <h1>Filter</h1>
+                    
                     <div id="filtering">
+                        
+                        <!-- Cooking time filter -->
                         <h3>Cooking time:</h3>
                         <div v-for="time in times" :key="time.title" >
                             <input type="checkbox" v-model="time.checked" v-on:change="changeMaxTime" />
                             {{ time.title }}
                         </div>
+                        
+                        <!-- Ingredients filter -->
                         <h3>Ingredients:</h3>
                         <div v-for="ingredient in ingredients" :key="ingredient.title" >
                             <input type="checkbox" v-model="ingredient.checked" v-on:change="addFilteredIngredient" />
@@ -83,28 +92,48 @@
                     </div>
                 </div>
                 
+                <!-- Section for showing the recipe detail after clicking on a recipe -->
                 <div id="showRecipe" v-if="show > 0" v-show="show > 0">
+                    
+                    <!-- Back to main page button -->
                     <button v-on:click="show = 0">← Back to main page</button>
+                    
+                    <!-- Recipe name -->
                     <h2>{{ recipes[show - 1].name }}</h2>
+                    
+                    <!-- Recipe type -->
                     <p>{{ recipes[show - 1].type }}</p>
+                    
+                    <!-- Recipe image -->
                     <img v-bind:src="recipes[show - 1].image">
+                    
+                    <!-- Recipe cooking time -->
                     <p>Cooking time: {{ recipes[show - 1].time }}</p>
+                    
+                    <!-- Recipe ingredients -->
                     <h3>Ingredients:</h3>
                     <div v-for="ingredient in recipes[show - 1].ingredients" :key="ingredient" >
                         <p>{{ ingredient }}</p>
                     </div>
+                    
+                    <!-- Recipe text -->
                     <h3>Recipe:</h3>
                     <p>{{ recipes[show - 1].recipe }}</p>
                 </div>
 
+                <!-- Section for showing the upload recipe form after clicking the upload recipe button -->
                 <div id="form" v-show="show == -1">
+
+                    <!-- Heading -->
                     <h1 id="heading">Upload your recipe</h1>
                     
+                    <!-- Recipe name form -->
                     <div id="name">
                         <h3>Recipe name:</h3>
                         <input class="form-control" id="nameInput" v-model="newRecipe.name" />
                     </div>
                     
+                    <!-- Recipe type form -->
                     <div id="type">
                         <h3>Recipe type:</h3>
 
@@ -124,27 +153,32 @@
                         <label for="drinks-type">Drinks</label>
                     </div>
                     
+                    <!-- Recipe time form -->
                     <div id="time">
                         <h3>Cooking time:</h3>
                         <input class="form-control" id="timeInput" v-model="newRecipe.time">
                     </div>
         
+                    <!-- Recipe ingredients form -->
                     <div id="ingredients">
                         <h3>Ingredients:</h3>
                         <p>More ingredients divide by ',' <br> Example: rice,milk,apple</p>
                         <input class="form-control" id="ingredientsInput" v-model="newRecipe.ingredients">
                     </div>
         
+                    <!-- Recipe text form -->
                     <div id="recipe">
                         <h3>Recipe:</h3>
                         <textarea class="form-control" id="recipeInput" v-model="newRecipe.recipe"></textarea>
                     </div>
         
+                    <!-- Uploading recipe photo -->
                     <div id="photos">
                         <h3>Upload your photo:</h3>
                         <input ref="fileInput" type="file" @input="loadImage">
                     </div>
                     
+                    <!-- Upload recipe button -->
                     <div id="uploadRecipe">
                         <button id="uploadButton" v-on:click="addRecipe">Upload</button>
                     </div>

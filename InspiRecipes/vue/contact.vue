@@ -1,3 +1,5 @@
+// Vue component for handling the contact form input on the Contact page
+
 let contact = new Vue({
     el: "#app",
     data() {

@@ -46,23 +46,33 @@
 
         <!-- FAQ page content -->
         <div id="container">
+
+            <!-- Heading -->
             <h1>Forum</h1>
-            <div>
-                <div id="topics" v-for="topic in posts" :key="topic.topicId">
-                    <h3>{{ topic.topic }}</h4>
-                    <div id="posts" v-for="post in topic.messages" :key="post.id">
-                        <div id="post">
-                            <div id="author">{{ post.name }}</div>
-                            <div id="message">{{ post.message }}</div>                        
-                        </div>
-                    </div>
-                    <div id="addComment">
-                        <input id="addName" placeholder="Fill your name" v-model="topic.newName"></input>
-                        <textarea id="comment" placeholder="Write your comment" v-model="topic.newMessage"></textarea>
-                        <button id="sendComment" v-on:click="addComment(topic.topicId)">Send</button>
+            
+            <!-- Forum section with topics -->
+            <div id="topics" v-for="topic in posts" :key="topic.topicId">
+                
+                <!-- Topic heading -->
+                <h3>{{ topic.topic }}</h4>
+                
+                <!-- Posts in each topic -->
+                <div id="posts" v-for="post in topic.messages" :key="post.id">
+                    <div id="post">
+                        <div id="author">{{ post.name }}</div>
+                        <div id="message">{{ post.message }}</div>                        
                     </div>
                 </div>
+                
+                <!-- Section for adding a comment to a particular topic -->
+                <div id="addComment">
+                    <input id="addName" placeholder="Fill your name" v-model="topic.newName"></input>
+                    <textarea id="comment" placeholder="Write your comment" v-model="topic.newMessage"></textarea>
+                    <button id="sendComment" v-on:click="addComment(topic.topicId)">Send</button>
+                </div>
+
             </div>
+        
         </div>
 
         <script src="../vue/faq.vue"></script>

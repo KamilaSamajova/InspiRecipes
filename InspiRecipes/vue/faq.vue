@@ -1,3 +1,5 @@
+// Vue component for handling topics and posts on the FAQ page
+
 let faq = new Vue({
     el: "#container",
     data() {

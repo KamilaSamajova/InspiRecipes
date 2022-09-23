@@ -1,3 +1,5 @@
+// Vue component for handling articles on the Main page
+
 let articles = new Vue({
     el: "#app",
     data() {

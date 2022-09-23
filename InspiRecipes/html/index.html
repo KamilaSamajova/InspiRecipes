@@ -88,6 +88,7 @@
                 </div>
             </div>
 
+            <!-- Section showing the article detail after clicking a particular article -->
             <div id="showArticle" v-if="show != 0" v-show="show != 0">
                 <button v-on:click="show = 0">← Back to main page</button>
                 <h2>{{ articles[show - 1].name }}</h2>

@@ -1,3 +1,5 @@
+// Vue component for handling recipes, recipe upload form and filters on the Recipes page
+
 let recipes = new Vue({
     el: "#app",
     data() {
@@ -57,6 +59,7 @@ let recipes = new Vue({
         }
     },
     methods: {
+        // method adding a recipe after filling the upload recipe form
         addRecipe() {
             this.recipes.push({ id: this.newRecipe.id,
                                 name: this.newRecipe.name, 
@@ -77,6 +80,7 @@ let recipes = new Vue({
             this.newRecipe.id++;
         },
 
+        // method handling the cooking time filter 
         changeMaxTime() {
             this.maxTime = 500
             
@@ -87,6 +91,7 @@ let recipes = new Vue({
             })
         },
 
+        // method hanling the ingredients filter
         addFilteredIngredient() {    
             this.filteredIngredients = []
 
@@ -102,6 +107,7 @@ let recipes = new Vue({
             }
         },
 
+        // method applying all the filteres used and returning the recipes after filtering
         filteredRecipes() {
             let tempRecipes = this.recipes
 
@@ -124,17 +130,18 @@ let recipes = new Vue({
             return tempRecipes
         },
 
+        // method for loading an image in the upload recipe form
         loadImage () {
-          let input = this.$refs.fileInput
-          let file = input.files
-          if (file && file[0]) {
-            let reader = new FileReader
-            reader.onload = e => {
-              this.newRecipe.recipeImage = e.target.result
+            let input = this.$refs.fileInput
+            let file = input.files
+            if (file && file[0]) {
+                let reader = new FileReader
+                reader.onload = e => {
+                this.newRecipe.recipeImage = e.target.result
+                }
+                reader.readAsDataURL(file[0])
+                this.$emit('input', file[0])
             }
-            reader.readAsDataURL(file[0])
-            this.$emit('input', file[0])
-          }
         }
     }
 });

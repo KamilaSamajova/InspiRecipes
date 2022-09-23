@@ -45,6 +45,8 @@
 
             <!-- Contact page content -->
             <div id="container">
+                
+                <!-- Author's info -->
                 <div id="personalInfo">
                     <h1 id="name">Name Surname</h1>
                     <img id="profilePicture" src="../Pictures/profile.png" />
@@ -57,21 +59,34 @@
                     </p>
                 </div>
 
+                <!-- Contact form -->
                 <div id="contact">
+                
+                    <!-- Heading -->
                     <h1>Contact me</h1>
+
+                    <!-- Mail form -->
                     <h2>Your e-mail:</h2>
                     <input class="form-control" id="mail" v-model="newMail">
+
+                    <!-- Message form -->
                     <h2>Message:</h2>
                     <textarea class="form-control" id="message" v-model="newMessage"></textarea>
                     <br>
+
+                    <!-- Send button -->
                     <button id="send" v-on:click="addMail">Send</button>
+
+                    <!-- Confirm message after sending a message -->
                     <p id="confirm" v-show="confirm"> 
                         Your message: '{{ messages[messages.length - 1].message }}' has been successfully
                         send. You will get an answer to your e-mail {{ messages[messages.length - 1].mail }}
                         in a few days.
                     </p>
                 </div>
+
             </div>
+
         </div>
 
         <script src="../vue/contact.vue"></script>
