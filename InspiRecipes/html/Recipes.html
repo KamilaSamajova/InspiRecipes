@@ -48,12 +48,14 @@
 
                 <div id="recipes" v-show="show">
                     <h1 v-on:click="searchValue = 'all'">All recipes</h1>
-                        <div class="active" v-for="recipe in filteredRecipes()" :key="recipe.name">
-                            <p>{{ recipe.name }}</p>
+                    <div id="recipeItems">
+                        <div id="recipeItem" class="active" v-for="recipe in filteredRecipes()" :key="recipe.name">
+                            <h4>{{ recipe.name }}</h4>
                             <p>{{ recipe.type }}</p>
                             <p>{{ recipe.time }} minutes</p>
                             <!--img v-bind:src="recipe.image"><-->
                         </div>
+                    </div>
                 </div>
 
                 <div id="filter" v-show="show">
@@ -82,7 +84,7 @@
                     
                     <div id="type">
                         <h3>Recipe type:</h3>
-                        
+
                         <input type="radio" id="breakfast-type" value="Breakfast" v-model="newRecipe.type" />
                         <label for="breakfast-type">Breakfast</label>
         

@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>InspiRecipes</title>
         <link rel="stylesheet" href="../css/Styles.css">
+        <link rel="stylesheet" href="../css/Faq.css">
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -37,7 +38,29 @@
             </div>
         </div>
 
+        <div id="container">
+            <h1>Forum</h1>
+            <div>
+                <div id="topics" v-for="topic in posts" :key="topic.topicId">
+                    <h3>{{ topic.topic }}</h4>
+                    <div id="posts" v-for="post in topic.messages" :key="post.id">
+                        <div id="post">
+                            <div id="author">{{ post.name }}</div>
+                            <div id="message">{{ post.message }}</div>                        
+                        </div>
+                    </div>
+                    <div id="addComment">
+                        <input id="addName" placeholder="Fill your name" v-model="topic.newName"></input>
+                        <textarea id="comment" placeholder="Write your comment" v-model="topic.newMessage"></textarea>
+                        <button id="sendComment" v-on:click="addComment(topic.topicId)">Send</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <script src="../vue/recipes.js"></script>
+        <script src="../vue/faq.js"></script>
 
     </body>
 

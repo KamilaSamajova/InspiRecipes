@@ -59,6 +59,7 @@ h3 {
     color: #ddefab;
     background-color:#1c7e13bb;
     box-shadow: 0px 2px 4px #0b4f056f;
+    cursor: pointer;
 }
 
 @media (max-width: 500px) {
