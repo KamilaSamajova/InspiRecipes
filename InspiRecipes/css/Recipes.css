@@ -81,7 +81,6 @@
 #recipeItems {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 #recipeItem {
@@ -93,6 +92,7 @@
     margin-right: 2%;
     margin-bottom: 3%;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 #recipeItem h4 {
@@ -116,6 +116,7 @@
     border-width: thin;
     border-radius: 3px;
     padding: 0.5% 1%;
+    cursor: pointer;
 }
 
 @media (max-width: 670px) {

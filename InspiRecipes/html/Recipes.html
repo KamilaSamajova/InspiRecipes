@@ -47,7 +47,7 @@
                 </div>
 
                 <div id="recipes" v-show="show == 0">
-                    <h1 v-on:click="searchValue = 'all'">All recipes</h1>
+                    <h1 v-on:click="searchValue = 'all'">Recipes</h1>
                     <div id="recipeItems">
                         <div id="recipeItem" v-for="recipe in filteredRecipes()" :key="recipe.id" v-on:click="show = recipe.id" >
                             <h4>{{ recipe.name }}</h4>
@@ -68,7 +68,7 @@
                         </div>
                         <h3>Ingredients:</h3>
                         <div v-for="ingredient in ingredients" :key="ingredient.title" >
-                            <input type="checkbox" v-model="ingredient.checked" />
+                            <input type="checkbox" v-model="ingredient.checked" v-on:change="addFilteredIngredient" />
                             {{ ingredient.title }}
                         </div>
                     </div>
@@ -122,7 +122,8 @@
         
                     <div id="ingredients">
                         <h3>Ingredients:</h3>
-                        <input class="form-control" id="ingredientsInput">
+                        <p>More ingredients divide by ',' <br> Example: rice,milk,apple</p>
+                        <input class="form-control" id="ingredientsInput" v-model="newRecipe.ingredients">
                     </div>
         
                     <div id="recipe">
@@ -132,7 +133,7 @@
         
                     <div id="photos">
                         <h3>Upload your photo:</h3>
-                        <button id="addPhotos"> + Add photo </button>
+                        <input ref="fileInput" type="file" @input="loadImage">
                     </div>
                     
                     <div id="uploadRecipe">

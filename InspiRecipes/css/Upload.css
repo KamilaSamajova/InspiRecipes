@@ -63,6 +63,10 @@
     grid-area: ingredients;
 }
 
+#ingredients p {
+    font-size: 85%;
+}
+
 #photos {
     grid-area: photos;
 }

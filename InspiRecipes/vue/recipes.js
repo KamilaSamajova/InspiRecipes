@@ -5,6 +5,8 @@ let recipes = new Vue({
             searchValue: 'all',
             maxTime: 500,
             show: 0,
+            filteredIngredients: ["rice", "pasta", "potatoes", "milk", "corn", 
+                                  "tomato", "pepper", "apple", "strawberry"],
             times: [
                 { max: 5, title: "< 5 mins", checked: false },
                 { max: 10, title: "< 10 mins", checked: false },
@@ -48,7 +50,9 @@ let recipes = new Vue({
                 name: '',
                 type: '',
                 time: '',
+                ingredients: '',
                 recipe: '',
+                recipeImage: 'Recipe.jpg',
             }
         }
     },
@@ -58,9 +62,9 @@ let recipes = new Vue({
                                 name: this.newRecipe.name, 
                                 type: this.newRecipe.type, 
                                 time: this.newRecipe.time, 
-                                ingredients: [], 
+                                ingredients: this.newRecipe.ingredients.split(","), 
                                 recipe: this.newRecipe.recipe, 
-                                image: '../Pictures/Recipe.jpg'});
+                                image: this.newRecipe.recipeImage});
             
             this.show = 0;
             this.searchValue = 'all';
@@ -68,6 +72,7 @@ let recipes = new Vue({
             this.newRecipe.name = '';
             this.newRecipe.type = '';
             this.newRecipe.time = '';
+            this.newRecipe.ingredients = '';
             this.newRecipe.recipe = '';
             this.newRecipe.id++;
         },
@@ -82,14 +87,32 @@ let recipes = new Vue({
             })
         },
 
+        addFilteredIngredient() {    
+            this.filteredIngredients = []
+
+            this.ingredients.forEach(ingredient => {
+                if (ingredient.checked) {
+                    this.filteredIngredients.push(ingredient.title);
+                }
+            })
+
+            if (this.filteredIngredients.length === 0) {
+                this.filteredIngredients = ["rice", "pasta", "potatoes", "milk", "corn", 
+                "tomato", "pepper", "apple", "strawberry"];
+            }
+        },
+
         filteredRecipes() {
             let tempRecipes = this.recipes
 
             tempRecipes = tempRecipes.filter((item) => {
                 return (item.time <= this.maxTime)
-
             })
 
+            tempRecipes = tempRecipes.filter((item) => {
+                return (item.ingredients.some(ing => this.filteredIngredients.includes(ing)))
+            })
+            
             if (this.searchValue == "all") {
                 return tempRecipes
             }
@@ -101,12 +124,17 @@ let recipes = new Vue({
             return tempRecipes
         },
 
-        showForm() {
-            this.show = -1;
-        },
-
-        getShow() {
-            return this.show;
-        },
+        loadImage () {
+          let input = this.$refs.fileInput
+          let file = input.files
+          if (file && file[0]) {
+            let reader = new FileReader
+            reader.onload = e => {
+              this.newRecipe.recipeImage = e.target.result
+            }
+            reader.readAsDataURL(file[0])
+            this.$emit('input', file[0])
+          }
+        }
     }
 });

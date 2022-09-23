@@ -134,6 +134,7 @@
     border-width: thin;
     padding: 0% 2%;
     margin-bottom: 3%;
+    cursor: pointer;
 }
 
 #articleItem img {
@@ -165,4 +166,5 @@ p {
     border-width: thin;
     border-radius: 3px;
     padding: 0.5% 1%;
+    cursor: pointer;
 }

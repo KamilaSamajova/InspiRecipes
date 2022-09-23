@@ -27,14 +27,16 @@
     resize: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-right: 1%;
-    width: 15%;
+    padding: 1%;
+    width: 14%;
 }
 
 #comment {
     resize: vertical;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-right: 1%;
-    width: 71%;
+    padding: 1%;
+    width: 69%;
 }
 
 #sendComment {
