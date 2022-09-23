@@ -13,9 +13,9 @@ let contact = new Vue({
     },
     methods: {
         addMail() {
-            this.messages.push({ name: this.newMail, 
-                                message: this.newMessage, 
-                                id: this.newId});
+            this.messages.push({ mail: this.newMail, 
+                                 message: this.newMessage, 
+                                 id: this.newId});
             
             this.newMail = '';
             this.newMessage = '';

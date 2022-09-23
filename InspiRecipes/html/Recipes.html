@@ -14,16 +14,22 @@
 
     <body>
         <div id="app">
-            <div id="menu">
+
+             <!-- Top navigation menu -->
+             <div id="menu">
+
+                <!-- InspiRecipes logo -->
                 <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
+                <!-- Navigation buttons -->
                 <ul id="nav">
                     <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
-                    <li><a href="Recipes.html" v-on:click="show = 0">RECIPES</a></li>
+                    <li><a href="Recipes.html">RECIPES</a></li>
                     <li><a href="FAQ.html">FAQ</a></li>
                     <li><a href="Contact.html">CONTACT</a></li>
                 </ul>
 
+                <!-- Search bar with search button -->
                 <div class="input" id="search-input">
                     <input type="search" class="form-control" id="searchbar"
                             placeholder="Search">
@@ -31,11 +37,14 @@
                     <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
                 </div>
 
+                <!-- Buton for uploading recipes -->
                 <button id="upload" v-on:click="show = -1">UPLOAD YOUR RECIPE</button>
 
+                <!-- Avocado picture -->
                 <img id="avocado" src="../Pictures/avocado.png">
             </div>
 
+            <!-- Recipes page content -->
             <div id="container">
                 
                 <div id="buttons" v-show="show == 0">
@@ -143,7 +152,7 @@
             </div>          
         </div>
 
-        <script src="../vue/recipes.js"></script>
+        <script src="../vue/recipes.vue"></script>
 
     </body>
 

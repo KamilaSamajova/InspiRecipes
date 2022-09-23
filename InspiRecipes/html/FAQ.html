@@ -14,10 +14,13 @@
     <body>
         <div id="app">
 
+            <!-- Top navigation menu -->
             <div id="menu">
-                
+
+                <!-- InspiRecipes logo -->
                 <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
+                <!-- Navigation buttons -->
                 <ul id="nav">
                     <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
                     <li><a href="Recipes.html">RECIPES</a></li>
@@ -25,6 +28,7 @@
                     <li><a href="Contact.html">CONTACT</a></li>
                 </ul>
 
+                <!-- Search bar with search button -->
                 <div class="input" id="search-input">
                     <input type="search" class="form-control" id="searchbar"
                             placeholder="Search">
@@ -32,12 +36,15 @@
                     <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
                 </div>
 
-                <button id="upload" onclick="window.location.href='Recipes.html';" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+                <!-- Buton for uploading recipes -->
+                <button id="upload" onclick="window.location.href='Recipes.html';">UPLOAD YOUR RECIPE</button>
 
+                <!-- Avocado picture -->
                 <img id="avocado" src="../Pictures/avocado.png">
             </div>
         </div>
 
+        <!-- FAQ page content -->
         <div id="container">
             <h1>Forum</h1>
             <div>
@@ -56,11 +63,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <script src="../vue/recipes.js"></script>
-        <script src="../vue/faq.js"></script>
+        <script src="../vue/faq.vue"></script>
 
     </body>
 

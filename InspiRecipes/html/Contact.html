@@ -13,10 +13,14 @@
 
     <body>
         <div id="app">
+
+            <!-- Top navigation menu -->
             <div id="menu">
                 
+                <!-- InspiRecipes logo -->
                 <a id="logo" href="index.html"><img id="logo-img" src="../Pictures/InspiRecipes.png" /></a>
 
+                <!-- Navigation buttons -->
                 <ul id="nav">
                     <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
                     <li><a href="Recipes.html">RECIPES</a></li>
@@ -24,6 +28,7 @@
                     <li><a href="Contact.html">CONTACT</a></li>
                 </ul>
 
+                <!-- Search bar with search button -->
                 <div class="input" id="search-input">
                     <input type="search" class="form-control" id="searchbar"
                             placeholder="Search">
@@ -31,11 +36,14 @@
                     <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
                 </div>
 
+                <!-- Buton for uploading recipes -->
                 <button id="upload" onclick="window.location.href='Recipes.html';">UPLOAD YOUR RECIPE</button>
 
+                <!-- Avocado picture -->
                 <img id="avocado" src="../Pictures/avocado.png">
             </div>
 
+            <!-- Contact page content -->
             <div id="container">
                 <div id="personalInfo">
                     <h1 id="name">Name Surname</h1>
@@ -58,7 +66,7 @@
                     <br>
                     <button id="send" v-on:click="addMail">Send</button>
                     <p id="confirm" v-show="confirm"> 
-                        Your message: {{ messages[messages.length - 1].message }} has been successfully
+                        Your message: '{{ messages[messages.length - 1].message }}' has been successfully
                         send. You will get an answer to your e-mail {{ messages[messages.length - 1].mail }}
                         in a few days.
                     </p>
@@ -66,7 +74,7 @@
             </div>
         </div>
 
-        <script src="../vue/contact.js"></script>
+        <script src="../vue/contact.vue"></script>
 
     </body>
 
