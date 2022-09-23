@@ -4,7 +4,7 @@ let recipes = new Vue({
         return {
             searchValue: 'all',
             maxTime: 500,
-            show: true,
+            show: 0,
             times: [
                 { max: 5, title: "< 5 mins", checked: false },
                 { max: 10, title: "< 10 mins", checked: false },
@@ -24,26 +24,27 @@ let recipes = new Vue({
                 { title: "strawberry", checked: false },
             ],
             recipes: [
-                { name: "Recipe 1", type: "Breakfast", time: 7, image: '../Pictures/Recipe.jpg',
+                { id: 1, name: "Recipe 1", type: "Breakfast", time: 7, image: '../Pictures/Recipe.jpg',
                     ingredients: [ "strawberry" ], 
-                    recipe: "" },
-                { name: "Recipe 2", type: "Main dish", time: 30, image: '../Pictures/Recipe.jpg', 
+                    recipe: "This is how to cook this recipe. This is how to cook this recipe." },
+                { id: 2, name: "Recipe 2", type: "Main dish", time: 30, image: '../Pictures/Recipe.jpg', 
                     ingredients: [ "pasta", "tomato" ], 
-                    recipe: "" },
-                { name: "Recipe 3", type: "Main dish", time: 10, image: '../Pictures/Recipe.jpg', 
+                    recipe: "This is how to cook this recipe. This is how to cook this recipe." },
+                { id: 3, name: "Recipe 3", type: "Main dish", time: 10, image: '../Pictures/Recipe.jpg', 
                     ingredients: [ "rice", "corn" ], 
-                    recipe: "" },
-                { name: "Recipe 4", type: "Soup", time: 3, image: '../Pictures/Recipe.jpg', 
+                    recipe: "This is how to cook this recipe. This is how to cook this recipe." },
+                { id: 4, name: "Recipe 4", type: "Soup", time: 3, image: '../Pictures/Recipe.jpg', 
                     ingredients: [ "potatoes", "pepper" ], 
-                    recipe: "" },
-                { name: "Recipe 5", type: "Snack", time: 20, image: '../Pictures/Recipe.jpg', 
+                    recipe: "This is how to cook this recipe. This is how to cook this recipe." },
+                { id: 5, name: "Recipe 5", type: "Snack", time: 20, image: '../Pictures/Recipe.jpg', 
                     ingredients: [  "rice", "tomato", "pepper" ], 
-                    recipe: "" },
-                { name: "Recipe 6", type: "Drinks", time: 8, image: '../Pictures/Recipe.jpg', 
+                    recipe: "This is how to cook this recipe. This is how to cook this recipe." },
+                { id: 6, name: "Recipe 6", type: "Drinks", time: 8, image: '../Pictures/Recipe.jpg', 
                     ingredients: [ "strawberry", "apple" ], 
-                    recipe: "" },
+                    recipe: "This is how to cook this recipe. This is how to cook this recipe." },
             ],
             newRecipe: {
+                id: 7,
                 name: '',
                 type: '',
                 time: '',
@@ -53,20 +54,22 @@ let recipes = new Vue({
     },
     methods: {
         addRecipe() {
-            this.recipes.push({ name: this.newRecipe.name, 
+            this.recipes.push({ id: this.newRecipe.id,
+                                name: this.newRecipe.name, 
                                 type: this.newRecipe.type, 
                                 time: this.newRecipe.time, 
                                 ingredients: [], 
                                 recipe: this.newRecipe.recipe, 
                                 image: '../Pictures/Recipe.jpg'});
             
-            this.show = true;
+            this.show = 0;
             this.searchValue = 'all';
             
             this.newRecipe.name = '';
             this.newRecipe.type = '';
             this.newRecipe.time = '';
             this.newRecipe.recipe = '';
+            this.newRecipe.id++;
         },
 
         changeMaxTime() {
@@ -99,7 +102,7 @@ let recipes = new Vue({
         },
 
         showForm() {
-            this.show = false;
+            this.show = -1;
         },
 
         getShow() {

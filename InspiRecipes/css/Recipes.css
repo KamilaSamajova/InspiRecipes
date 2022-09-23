@@ -20,7 +20,7 @@
 
 #recipes {
     grid-area: recipes;
-    width: 90%;
+    width: 95%;
 }
 
 #recipes h1 {
@@ -89,10 +89,33 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding-left: 3%;
+    padding: 1% 3%;
     margin-right: 2%;
     margin-bottom: 3%;
     border-radius: 5px;
+}
+
+#recipeItem h4 {
+    margin: 5% 0%;
+}
+
+#recipeItem p {
+    margin: 4% 0%;
+}
+
+#recipeItem img {
+    width: 100%;
+}
+
+#showRecipe img {
+    width: 100%;
+}
+
+#showRecipe button {
+    background-color: #e5f7bff9;
+    border-width: thin;
+    border-radius: 3px;
+    padding: 0.5% 1%;
 }
 
 @media (max-width: 670px) {
@@ -109,7 +132,7 @@
     }
 
     #recipeItem {
-        width: 46%;
+        width: 42%;
     }
 
     #container {
@@ -118,16 +141,20 @@
                              "form form";
         grid-template-columns: 55% 45%;
     }
+
+    #recipes {
+        width: 100%;
+    }
 }
 
 @media (min-width: 670px) {
     #recipeItem {
-        width: 46%;
+        width: 41%;
     }
 }
 
 @media (min-width: 900px) {
     #recipeItem {
-        width: 28%;
+        width: 25%;
     }
 }

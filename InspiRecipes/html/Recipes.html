@@ -19,7 +19,7 @@
 
                 <ul id="nav">
                     <li id="firstLi"><a href="index.html">MAIN PAGE</a></li>
-                    <li><a href="Recipes.html" v-on:click="show = true">RECIPES</a></li>
+                    <li><a href="Recipes.html" v-on:click="show = 0">RECIPES</a></li>
                     <li><a href="FAQ.html">FAQ</a></li>
                     <li><a href="Contact.html">CONTACT</a></li>
                 </ul>
@@ -31,14 +31,14 @@
                     <img id="button-picture" src="../Pictures/SearchI.png" alt="search" onclick=""/>
                 </div>
 
-                <button id="upload" v-on:click="show = false">UPLOAD YOUR RECIPE</button>
+                <button id="upload" v-on:click="show = -1">UPLOAD YOUR RECIPE</button>
 
                 <img id="avocado" src="../Pictures/avocado.png">
             </div>
 
             <div id="container">
                 
-                <div id="buttons" v-show="show">
+                <div id="buttons" v-show="show == 0">
                     <button id="breakfast" v-on:click="searchValue = 'Breakfast'"><h2>Breakfast</h2></button>
                     <button id="soup" v-on:click="searchValue = 'Soup'"><h2>Soup</h2></button>
                     <button id="dish" v-on:click="searchValue = 'Main dish'"><h2>Main dish</h2></button>
@@ -46,19 +46,19 @@
                     <button id="drinks" v-on:click="searchValue = 'Drinks'"><h2>Drinks</h2></button>
                 </div>
 
-                <div id="recipes" v-show="show">
+                <div id="recipes" v-show="show == 0">
                     <h1 v-on:click="searchValue = 'all'">All recipes</h1>
                     <div id="recipeItems">
-                        <div id="recipeItem" class="active" v-for="recipe in filteredRecipes()" :key="recipe.name">
+                        <div id="recipeItem" v-for="recipe in filteredRecipes()" :key="recipe.id" v-on:click="show = recipe.id" >
                             <h4>{{ recipe.name }}</h4>
                             <p>{{ recipe.type }}</p>
+                            <img v-bind:src="recipe.image">
                             <p>{{ recipe.time }} minutes</p>
-                            <!--img v-bind:src="recipe.image"><-->
                         </div>
                     </div>
                 </div>
 
-                <div id="filter" v-show="show">
+                <div id="filter" v-show="show == 0">
                     <h1>Filter</h1>
                     <div id="filtering">
                         <h3>Cooking time:</h3>
@@ -73,8 +73,22 @@
                         </div>
                     </div>
                 </div>
+                
+                <div id="showRecipe" v-if="show > 0" v-show="show > 0">
+                    <button v-on:click="show = 0">← Back to main page</button>
+                    <h2>{{ recipes[show - 1].name }}</h2>
+                    <p>{{ recipes[show - 1].type }}</p>
+                    <img v-bind:src="recipes[show - 1].image">
+                    <p>Cooking time: {{ recipes[show - 1].time }}</p>
+                    <h3>Ingredients:</h3>
+                    <div v-for="ingredient in recipes[show - 1].ingredients" :key="ingredient" >
+                        <p>{{ ingredient }}</p>
+                    </div>
+                    <h3>Recipe:</h3>
+                    <p>{{ recipes[show - 1].recipe }}</p>
+                </div>
 
-                <div id="form" v-show="!show">
+                <div id="form" v-show="show == -1">
                     <h1 id="heading">Upload your recipe</h1>
                     
                     <div id="name">
@@ -123,13 +137,6 @@
                     
                     <div id="uploadRecipe">
                         <button id="uploadButton" v-on:click="addRecipe">Upload</button>
-                    </div>
-        
-                    <div class="active" v-for="recipe in filteredRecipes()" :key="recipe.name" v-show="false">
-                        <p>{{ recipe.name }}</p>
-                        <p>{{ recipe.type }}</p>
-                        <p>{{ recipe.time }} minutes</p>
-                        <!--img v-bind:src="recipe.image"><-->
                     </div>
                 </div>
             </div>          
