@@ -96,6 +96,14 @@ let recipes = new Vue({
             })
 
             return tempRecipes
-        }
+        },
+
+        showForm() {
+            this.show = false;
+        },
+
+        getShow() {
+            return this.show;
+        },
     }
 });
